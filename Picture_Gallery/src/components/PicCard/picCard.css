@@ -1,0 +1,14 @@
+.main-card{
+    height: 35%;
+    width: 24%;
+    display: flex;
+    margin: 5px;
+    /* background-color: red; */
+}
+
+.Card img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
