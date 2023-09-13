@@ -40,7 +40,7 @@ function GalleryPage(){
 
         useEffect(()=>{
             DownloadPics()},
-        []);
+        [more]);
 
 
     return(
@@ -50,10 +50,10 @@ function GalleryPage(){
         </div>
 
         {(Loader) ? "" : <div className="Buttons">
-                                        <button onClick={() => setMore(more+16)}>Load more</button>
-                                        <button onClick={() => setMore(more-16)}>Load less</button>
-                                    </div>
-        }
+                {(more == 16 ) ? <button disabled onClick={() => {setMore(more-16)}}>Load less</button> : 
+                                        <button onClick={() => {setMore(more-16)}}>Load less</button>}
+                                        <button onClick={() => {setMore(more+16)}}>Load more</button>
+                        </div>}
     </div>
     )
 }
