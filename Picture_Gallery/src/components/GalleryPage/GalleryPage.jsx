@@ -15,9 +15,9 @@ function GalleryPage(){
 
         async function DownloadPics(){
             const res = await axios.get(ULR_PIC_GALLERY);
-            console.log("res: ", res);
+            // console.log("res: ", res);
             const photosDetails = res.data.photos;
-            console.log("photosDetails: ", photosDetails);
+            // console.log("photosDetails: ", photosDetails);
 
             const utl_Id_Object = photosDetails.map((keys)=>{
 
@@ -52,7 +52,8 @@ function GalleryPage(){
         {(Loader) ? "" : <div className="Buttons">
                 {(more == 16 ) ? <button disabled onClick={() => {setMore(more-16)}}>Load less</button> : 
                                         <button onClick={() => {setMore(more-16)}}>Load less</button>}
-                                        <button onClick={() => {setMore(more+16)}}>Load more</button>
+                                        {(more > 127) ? <button disabled onClick={() => {setMore(more+16)}}>Load more</button>:
+                                        <button onClick={() => {setMore(more+16)}}>Load more</button>}
                         </div>}
     </div>
     )
